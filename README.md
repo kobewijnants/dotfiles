@@ -36,6 +36,8 @@ stow .
 - [zinit](https://github.com/zdharma-continuum/zinit)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [PowerLevel10K](https://github.com/romkatv/powerlevel10k)
+- [alacritty](https://github.com/alacritty/alacritty)
 
 - [vscode](https://code.visualstudio.com/)
-- [alacritty](https://github.com/alacritty/alacritty)
+- [NeoVim](https://neovim.io/)
+- [LazyVim](https://github.com/folke/lazy.nvim)
