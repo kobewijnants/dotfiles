@@ -82,9 +82,17 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
+alias ls='exa --icons'
+alias ll='exa --icons --long'
+alias la='exa --icons --long --all'
+alias lt='exa --icons --long --all --tree --level=2'
 alias vim='nvim'
 alias c='clear'
+alias df='duf'
+alias man='tldr'
+alias cat='batcat'
+alias ping='gping'
+alias cd='z'
 
 # Shell integrations
 eval "$(zoxide init zsh)"
