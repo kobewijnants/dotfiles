@@ -9,7 +9,6 @@ if [[ -r "/home/kobe/.config/zi/init.zsh" ]]; then
   source "/home/kobe/.config/zi/init.zsh" && zzinit
 fi
 
-
 # theme
 zi ice depth=1; zi light romkatv/powerlevel10k
 
@@ -50,6 +49,8 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::gcloud
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::ansible
+
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -78,8 +79,8 @@ setopt hist_find_no_dups
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -all $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'exa -all $realpath'
 
 # Aliases
 alias ls='exa --icons'
@@ -97,3 +98,7 @@ alias cd='z'
 # Shell integrations
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Environment variables
+export EDITOR=nvim
+
