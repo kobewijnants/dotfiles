@@ -1,19 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-if [[ -r "/home/kobe/.config/zi/init.zsh" ]]; then
-  source "/home/kobe/.config/zi/init.zsh" && zzinit
-fi
-
-# theme
-zi ice depth=1; zi light romkatv/powerlevel10k
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyo.json)"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -29,6 +14,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+if [[ -r "/home/kobe/.config/zi/init.zsh" ]]; then
+  source "/home/kobe/.config/zi/init.zsh" && zzinit
+fi
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -43,23 +32,20 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::gcloud
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::ansible
-
+zinit snippet OMZP::rust
+zinit snippet OMZP::thefuck
+zinit snippet OMZP::dotnet
 
 # Load completions
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 # History
 HISTSIZE=5000
@@ -90,10 +76,10 @@ alias lt='exa --icons --long --all --tree --level=2'
 alias vim='nvim'
 alias c='clear'
 alias df='duf'
-alias man='tldr'
-alias cat='batcat'
-alias ping='gping'
+alias du='dust'
+alias cat='bat'
 alias cd='z'
+alias v='nvim'
 
 # Shell integrations
 eval "$(zoxide init zsh)"
@@ -102,3 +88,8 @@ eval "$(zoxide init zsh)"
 # Environment variables
 export EDITOR=nvim
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kobe/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kobe/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kobe/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kobe/google-cloud-sdk/completion.zsh.inc'; fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
-# Pywal Colors for current wallpaper
+# Wallust Colors for current wallpaper
 
 # Define the path to the swww cache directory
 cache_dir="$HOME/.cache/swww/"
@@ -11,8 +11,8 @@ monitor_outputs=($(ls "$cache_dir"))
 # Initialize a flag to determine if the ln command was executed
 ln_success=false
 
-# Get first valid monitor
-current_monitor=$(hyprctl -j monitors | jq -r '.[0].name')
+# Get current focused monitor
+current_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
 echo $current_monitor
 # Construct the full path to the cache file
 cache_file="$cache_dir$current_monitor"
@@ -30,9 +30,8 @@ fi
 
 # Check the flag before executing further commands
 if [ "$ln_success" = true ]; then
-    # execute pywal
-    # wal -i "$wallpaper_path"
-	echo 'about to execute wal'
-    # execute pywal skipping tty and terminal changes
-    wal -i "$wallpaper_path" -s -t -n -e &
+    # execute wallust
+	echo 'about to execute wallust'
+    # execute wallust skipping tty and terminal changes
+    wallust run "$wallpaper_path" -s &
 fi
