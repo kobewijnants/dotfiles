@@ -24,7 +24,7 @@ weather_icons = {
 # to get your own location_id, go to https://weather.com & search your location.
 # once you choose your location, you can see the location_id in the URL(64 chars long hex string)
 # like this: https://weather.com/en-PH/weather/today/l/bca47d1099e762a012b9a139c36f30a0b1e647f69c0c4ac28b537e7ae9c1c200
-location_id = "bca47d1099e762a012b9a139c36f30a0b1e647f69c0c4ac28b537e7ae9c1c200"  # TODO
+location_id = "2bcfafd4e62f4e453e9db0106371b9035a00289613cbf6ce83689672fdfa6db3"
 
 # NOTE to change to deg F, change the URL to your preffered location after weather.com
 # Default is English-Philippines with Busan, South Korea as location_id
@@ -123,11 +123,13 @@ out_data = {
 }
 print(json.dumps(out_data))
 
-simple_weather =f"{icon}  {status}\n" + \
-                f"  {temp} ({temp_feel_text})\n" + \
-                f"{wind_text} \n" + \
-                f"{humidity_text} \n" + \
-                f"{visbility_text} AQI{air_quality_index}\n"
+simple_weather = (
+    f"{icon}  {status}\n"
+    + f"  {temp} ({temp_feel_text})\n"
+    + f"{wind_text} \n"
+    + f"{humidity_text} \n"
+    + f"{visbility_text} AQI{air_quality_index}\n"
+)
 
 try:
     with open(os.path.expanduser("~/.cache/.weather_cache"), "w") as file:

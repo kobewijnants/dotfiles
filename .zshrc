@@ -78,6 +78,7 @@ alias c='clear'
 alias cat='bat'
 alias cd='z'
 alias v='nvim'
+alias aiderls="find . -type f | git check-ignore --stdin -v -n | grep '^::' | cut -f2- | sed 's|^\./||'"
 
 # Shell integrations
 eval "$(zoxide init zsh)"
@@ -108,7 +109,6 @@ if [ -f '/home/kobe/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/h
 
 export PATH=$PATH:/home/kobe/.spicetify
 
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
+export PATH=$PATH:/home/kobe/.local/bin
+
+source $HOME/.zshrcAPI
