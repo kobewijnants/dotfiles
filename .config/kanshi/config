@@ -1,0 +1,17 @@
+profile {
+    output DP-1 {
+        mode 1920x1080
+        position 0,0
+        enable
+    }
+    output eDP-1 disable
+}
+
+profile {
+    output eDP-1 {
+        mode 1920x1080
+        position 0,0
+        enable
+    }
+    output DP-1 disable
+}
