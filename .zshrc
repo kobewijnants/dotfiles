@@ -40,6 +40,12 @@ zinit snippet OMZP::gcloud
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::rust
 zinit snippet OMZP::kubectl
+zinit snippet OMZP::docker
+zinit snippet OMZP::tmux
+zinit snippet OMZP::kitty
+zinit snippet OMZP::nmap
+zinit snippet OMZP::gh
+zinit snippet OMZP::docker-compose
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -73,7 +79,6 @@ alias ls='exa --icons'
 alias ll='exa --icons --long'
 alias la='exa --icons --long --all'
 alias lt='exa --icons --long --all --tree --level=2'
-alias vim='nvim'
 alias c='clear'
 alias cat='bat'
 alias cd='z'
