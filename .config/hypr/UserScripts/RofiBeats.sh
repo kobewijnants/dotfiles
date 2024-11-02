@@ -2,25 +2,21 @@
 # For Rofi Beats to play online Music or Locally save media files
 
 # Directory local music folder
-mDIR="$HOME/Music/"
+mDIR="/mnt/media/music"
 
 # Directory for icons
 iDIR="$HOME/.config/swaync/icons"
 
 # Online Stations. Edit as required
 declare -A online_music=(
-  ["Soundcloud"]="https://"
-  ["FM - Easy Rock 96.3 📻🎶"]="https://radio-stations-philippines.com/easy-rock"
-  ["FM - WRock - CEBU 96.3 📻🎶"]="https://onlineradio.ph/126-96-3-wrock.html"
-  ["YT - Wish 107.5 YT Pinoy HipHop 🎻🎶"]="https://youtube.com/playlist?list=PLkrzfEDjeYJnmgMYwCKid4XIFqUKBVWEs&si=vahW_noh4UDJ5d37"
-  ["YT - Top Youtube Music 2023 ☕️🎶"]="https://youtube.com/playlist?list=PLDIoUOhQQPlXr63I_vwF9GD8sAKh77dWU&si=y7qNeEVFNgA-XxKy"
-  ["YT - Wish 107.5 YT Wishclusives ☕️🎶"]="https://youtube.com/playlist?list=PLkrzfEDjeYJn5B22H9HOWP3Kxxs-DkPSM&si=d_Ld2OKhGvpH48WO"
-  ["Chillhop Radio ☕️🎶"]="http://stream.zeno.fm/fyn8eh3h5f8uv"
-  ["FM - Fresh Philippines ☕️🎶"]="https://onlineradio.ph/553-fresh-fm.html"
-  ["YT - Relaxing Music ☕️🎶"]="https://youtube.com/playlist?list=PLMIbmfP_9vb8BCxRoraJpoo4q1yMFg4CE"
-  ["YT - Youtube Remix 📻🎶"]="https://youtube.com/playlist?list=PLeqTkIUlrZXlSNn3tcXAa-zbo95j0iN-0"
-  ["YT - Korean Drama OST 📻🎶"]="https://youtube.com/playlist?list=PLUge_o9AIFp4HuA-A3e3ZqENh63LuRRlQ"
-  ["YT - AfroBeatz 2024 🎧"]="https://www.youtube.com/watch?v=7uB-Eh9XVZQ"
+  ["Top Radio - Retro Arena"]="https://playerservices.streamtheworld.com/api/livestream-redirect/TOPRETRO.mp3?dist=website"
+  ["Top Radio - Jump / Hardstyle"]="https://playerservices.streamtheworld.com/api/livestream-redirect/TOPBAM.mp3?dist=website"
+  ["Kool FM"]="https://admin.stream.rinse.fm/proxy/kool/stream"
+  ["Rinse FM"]="https://admin.stream.rinse.fm/proxy/rinse_uk/stream"
+  ["D3EP"]="https://cast.d3ep.com:8008/192?v=1730451746"
+  ["SC - Krechel"]="https://soundcloud.com/kobe-wijnants-525613440/sets/krechel-mixkes?si=c2e41bae9e5249dc96925754349b911b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  ["SC - Garage"]="https://soundcloud.com/kobe-wijnants-525613440/sets/garage-mixkes?si=9fce184c7c73424a89f23d9faad98df3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  ["SC - Afbraak"]="https://soundcloud.com/kobe-wijnants-525613440/sets/afbraakwerken?si=2f3d059537394257b5ad4229c1bf7fb0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
 )
 
 # Populate local_music array with files from music directory and subdirectories

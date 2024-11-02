@@ -1,5 +1,4 @@
-eval "$(starship init zsh)"
-
+zmodload zsh/zprof
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -28,29 +27,32 @@ zinit light-mode for \
 
 # Add zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 bindkey '^f' autosuggest-accept
-zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-# Add in snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::gcloud
-zinit snippet OMZP::command-not-found
-zinit snippet OMZP::rust
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::docker
-zinit snippet OMZP::tmux
-zinit snippet OMZP::kitty
-zinit snippet OMZP::nmap
-zinit snippet OMZP::gh
-zinit snippet OMZP::docker-compose
+zinit wait lucid for \
+    OMZP::git          \
+    OMZP::sudo          \
+    OMZP::gcloud        \
+    OMZP::rust          \
+    OMZP::kubectl       \
+    OMZP::tmux          \
+    OMZP::kitty         \
+    OMZP::docker-compose
+
 
 # Load completions
-autoload -Uz compinit && compinit
+zstyle ':completion:*' rehash true
+autoload -Uz compinit && compinit -i
 
-zinit cdreplay -q
+# Carapace integration for Zsh
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+if command -v carapace &>/dev/null; then
+    eval "$(carapace _carapace)"
+    source <(carapace _carapace zsh)
+fi
 
 # History
 HISTSIZE=5000
@@ -65,7 +67,9 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-
+setopt inc_append_history
+setopt hist_reduce_blanks
+setopt extended_history
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -93,27 +97,31 @@ eval "$(zoxide init zsh)"
 export EDITOR=nvim
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# Source the Lazyman shell initialization for aliases and nvims selector
-# shellcheck source=.config/nvim-Lazyman/.lazymanrc
-[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
-# Source the Lazyman .nvimsbind for nvims key binding
-# shellcheck source=.config/nvim-Lazyman/.nvimsbind
-[ -f ~/.config/nvim-Lazyman/.nvimsbind ] && source ~/.config/nvim-Lazyman/.nvimsbind
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Make kitty work better with zsh
 export KITTY_SHELL_INTEGRATION="enabled"
 autoload -Uz -- /home/kobe/.config/kitty/kitty-integration; kitty-integration; unfunction kitty-integration
 
-# The next line updates PATH for the Google Cloud SDK.
+# Google Cloud SDK
 if [ -f '/home/kobe/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kobe/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
 if [ -f '/home/kobe/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kobe/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH=$PATH:/home/kobe/.spicetify
 
 export PATH=$PATH:/home/kobe/.local/bin
 
-source $HOME/.zshrcAPI
+zinit cdreplay -q
+
+# Load custom API configurations
+[ -f $HOME/.zshrcAPI ] && source $HOME/.zshrcAPI
+
+eval "$(starship init zsh)"
+eval "$(gh copilot alias -- zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/kobe/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/kobe/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/kobe/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/kobe/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
