@@ -4,13 +4,12 @@ end
 
 set fish_greeting
 
-# Initialize fuzzy finder.
-if type -q fzf
-    if not test -r $__fish_cache_dir/fzf_init.fish
-        fzf --fish >$__fish_cache_dir/fzf_init.fish
-    end
-    source $__fish_cache_dir/fzf_init.fish
-end
+zoxide init fish | source
+
+set -x EDITOR nvim
+
+# fzf
+set fzf_preview_dir_cmd eza --all --color=always
 
 function fish_user_key_bindings
     for mode in insert default visual
