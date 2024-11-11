@@ -13,10 +13,13 @@ declare -A online_music=(
   ["Top Radio - Jump / Hardstyle"]="https://playerservices.streamtheworld.com/api/livestream-redirect/TOPBAM.mp3?dist=website"
   ["Kool FM"]="https://admin.stream.rinse.fm/proxy/kool/stream"
   ["Rinse FM"]="https://admin.stream.rinse.fm/proxy/rinse_uk/stream"
+  ["SWU FM"]="https://admin.stream.rinse.fm/proxy/swu/stream"
   ["D3EP"]="https://cast.d3ep.com:8008/192?v=1730451746"
   ["SC - Krechel"]="https://soundcloud.com/kobe-wijnants-525613440/sets/krechel-mixkes?si=c2e41bae9e5249dc96925754349b911b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   ["SC - Garage"]="https://soundcloud.com/kobe-wijnants-525613440/sets/garage-mixkes?si=9fce184c7c73424a89f23d9faad98df3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   ["SC - Afbraak"]="https://soundcloud.com/kobe-wijnants-525613440/sets/afbraakwerken?si=2f3d059537394257b5ad4229c1bf7fb0&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  ["SC - Dub techno"]="https://soundcloud.com/chrisf467/sets/dub-techno?si=904c49fd48e34235823d740a50101fb2&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+  ["SC - Hardgroove"]="https://soundcloud.com/user-492278681/sets/hardgroove?si=8ed0fbb2926143d8a5b100a72a3dfc8d&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
 )
 
 # Populate local_music array with files from music directory and subdirectories
