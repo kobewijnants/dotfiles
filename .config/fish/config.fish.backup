@@ -16,6 +16,3 @@ function fish_user_key_bindings
         bind -M $mode \cf forward-char
     end
 end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/kobe/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/kobe/Downloads/google-cloud-sdk/path.fish.inc'; end
