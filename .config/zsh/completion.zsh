@@ -106,4 +106,9 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 source $DOTFILES/.config/zsh/plugins/custom-completion/_kubectl
 zstyle ':completion:*:*:kubectl:*' list-grouped false
 
+### command not found
 source /usr/share/doc/pkgfile/command-not-found.zsh
+
+### google cloud
+source /home/kobe/Documents/google-cloud-sdk/completion.zsh.inc
+

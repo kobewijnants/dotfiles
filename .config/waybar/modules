@@ -613,6 +613,13 @@
     "kitty-dropterm"
 		],
 },
+"systemd-failed-units": {
+	"hide-on-ok": false, // Do not hide if there is zero failed units.
+	"format": "✗ {nr_failed}",
+	"format-ok": "✓",
+	"system": true, // Monitor failed systemwide units.
+	"user": false // Ignore failed user units.
+},
 "custom/cycle_wall": {
 	"format": " ",
 	"on-click": "~/.config/hypr/UserScripts/WallpaperSelect.sh",
@@ -624,6 +631,7 @@
 "custom/hint": {
 	"format": "󰺁 HINT!",
 	"on-click": "~/.config/hypr/scripts/KeyHints.sh",
+  "on-click-right": "~/.config/hypr/scripts/KeyBinds.sh",
 	"tooltip": true,
 	"tooltip-format": "󱧣 Quick Tips",
 },
@@ -710,13 +718,13 @@
 	"interval": 30,
 	"on-click": "if command -v paru &> /dev/null; then kitty -T update paru -Syu; else kitty -T update yay -Syu; fi && notify-send 'The system has been updated'",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Update System\nArch Linux Only",
+	"tooltip-format": "Left Click: Update System",
 },
 "custom/weather": {
 	"format": "{}",
 	"format-alt": "{alt}: {}",
 	"format-alt-click": "click",
-	"interval": 1800,
+	"interval": 600,
 	"return-type": "json",
 	"exec": "~/.config/hypr/UserScripts/Weather.sh",
 	//"exec": "~/.config/hypr/UserScripts/Weather.py",

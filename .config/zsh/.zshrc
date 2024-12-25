@@ -7,15 +7,21 @@ source $ZDOTDIR/aliases
 ##############
 # COMPLETION #
 ##############
-autoload -U compinit; compinit -C
+#autoload -Uz compinit; compinit -C
+autoload -Uz zrecompile
+autoload -Uz compinit
+dump=$ZSH_COMPDUMP
+
+if [[ -s $dump(#qN.mh+24) && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    compinit -i d $ZSH_COMPDUMP
+    zrecompile $ZSH_COMPDUMP
+fi
+compinit -C
 
 _comp_options+=(globdots) # With hidden files
 source $ZDOTDIR/completion.zsh
 
 fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
-
-source /home/kobe/Documents/google-cloud-sdk/path.zsh.inc
-source /home/kobe/Documents/google-cloud-sdk/completion.zsh.inc
 
 # History based completion
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -27,6 +33,16 @@ setopt NO_BEEP
 # Auto-suggestions
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^F' end-of-line
+
+# autopair
+source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
+autopair-init
+
+# zowe completion
+source $ZDOTDIR/plugins/custom-completion/zowe.bash
+
+# carapace completion
+source <(carapace _carapace zsh)
 
 #######
 # VIM #
@@ -81,6 +97,12 @@ source /usr/share/fzf/key-bindings.zsh
 source $ZDOTDIR/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 ##########
+# gcloud #
+##########
+
+source /home/kobe/Documents/google-cloud-sdk/path.zsh.inc
+
+##########
 # ZOXIDE #
 ##########
 eval "$(zoxide init zsh)"
@@ -89,6 +111,12 @@ eval "$(zoxide init zsh)"
 # SYNTAX HIGHLIGHTING #
 #######################
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#############
+# FUNCTIONS #
+#############
+
+source $ZDOTDIR/functions.zsh
 
 ############
 # STARSHIP #
