@@ -44,6 +44,8 @@ source $ZDOTDIR/plugins/custom-completion/zowe.bash
 # carapace completion
 source <(carapace _carapace zsh)
 
+compdef _gnu_generic fzf
+
 #######
 # VIM #
 #######
@@ -91,10 +93,6 @@ bindkey -M visual S add-surround
 #######
 # FZF #
 #######
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
-
-source $ZDOTDIR/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 ##########
 # gcloud #
@@ -115,7 +113,6 @@ source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #############
 # FUNCTIONS #
 #############
-
 source $ZDOTDIR/functions.zsh
 
 ############

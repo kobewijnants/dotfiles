@@ -29,5 +29,11 @@ alias grep='grep -P -i --color=auto'
 alias ports='netstat -tulanp'
 
 # NVIM
-alias vim=nvim
-alias vi=nvim
+alias vim='nvim'
+alias vi='nvim'
+
+# Clear
+alias c='clear'
+
+# my public ip
+alias myip='curl ipinfo.io/ip'
