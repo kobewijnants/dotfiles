@@ -37,3 +37,6 @@ alias c='clear'
 
 # my public ip
 alias myip='curl ipinfo.io/ip'
+
+# Octave
+alias octave='LD_PRELOAD=libnvblas.so NVBLAS_CONFIG_FILE=/etc/nvblas.conf octave -q'

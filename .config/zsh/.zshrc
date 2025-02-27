@@ -119,3 +119,5 @@ source $ZDOTDIR/functions.zsh
 # STARSHIP #
 ############
 eval "$(starship init zsh)"
+
+

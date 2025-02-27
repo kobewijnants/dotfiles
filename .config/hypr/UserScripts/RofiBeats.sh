@@ -17,6 +17,7 @@ declare -A online_music=(
   ["D3EP"]="https://cast.d3ep.com:8008/192?v=1730451746"
   ["bassdrive"]="https://bassdrive.radioca.st/stream?"
   ["hardcoreradio"]="https://stream.hardcoreradio.nl:9000/hcr.ogg"
+  ["Kiosk radio"]="https://kioskradiobxl.out.airtime.pro:8000/kioskradiobxl_b"
   ["SC - Krechel"]="https://soundcloud.com/kobe-wijnants-525613440/sets/krechel-mixkes?si=c2e41bae9e5249dc96925754349b911b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   ["SC - OldSkool"]="https://soundcloud.com/frederik-soete/sets/jumpup-oldschool?si=a9b740e3e24c4335b6ac51603ffb4b92&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
   ["SC - Garage"]="https://soundcloud.com/kobe-wijnants-525613440/sets/garage-mixkes?si=9fce184c7c73424a89f23d9faad98df3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
