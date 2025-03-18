@@ -51,7 +51,7 @@ compdef _gnu_generic fzf
 #######
 
 # Use vi keybindings
-bindkey -v
+#bindkey -v
 export KEYTIMEOUT=1
 
 # Use vi mode to scroll through completion
