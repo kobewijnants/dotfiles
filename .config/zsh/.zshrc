@@ -44,6 +44,9 @@ source $ZDOTDIR/plugins/custom-completion/zowe.bash
 # carapace completion
 source <(carapace _carapace zsh)
 
+# Angular completion
+source <(ng completion script)
+
 compdef _gnu_generic fzf
 
 #######

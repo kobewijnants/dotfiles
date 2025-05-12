@@ -29,7 +29,7 @@ alias grep='grep -P -i --color=auto'
 alias ports='netstat -tulanp'
 
 # NVIM
-alias vim='nvim'
+# alias vim='nvim'
 alias vi='nvim'
 
 # Clear
@@ -40,3 +40,15 @@ alias myip='curl ipinfo.io/ip'
 
 # Octave
 alias octave='LD_PRELOAD=libnvblas.so NVBLAS_CONFIG_FILE=/etc/nvblas.conf octave -q'
+
+# Nmap
+alias nmap-full='sudo nmap -sS -sV -sC -O'
+
+# Test container
+alias test-ubuntu='docker run -it --rm dev-ubuntu'
+alias test-debian='docker run -it --rm dev-debian'
+alias test-alpine='docker run -it --rm dev-alpine'
+alias test-arch='docker run -it --rm dev-arch'
+alias test-fedora='docker run -it --rm dev-fedora'
+alias test-opensuse-leap='docker run -it --rm dev-opensuse-leap'
+alias test-opensuse-tumbleweed='docker run -it --rm dev-opensuse-tumbleweed'
