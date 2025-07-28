@@ -93,10 +93,6 @@ bindkey -M vicmd ds delete-surround
 bindkey -M vicmd ys add-surround
 bindkey -M visual S add-surround
 
-#######
-# FZF #
-#######
-
 ##########
 # gcloud #
 ##########
@@ -122,5 +118,3 @@ source $ZDOTDIR/functions.zsh
 # STARSHIP #
 ############
 eval "$(starship init zsh)"
-
-

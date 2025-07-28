@@ -1,4 +1,4 @@
-# Common recent settings file for Wireshark 4.4.5.
+# Common recent settings file for Wireshark 4.4.6.
 #
 # This file is regenerated each time Wireshark is quit
 # and when changing configuration profile.
@@ -17,9 +17,9 @@ recent.display_filter: ip.addr==10.18.71.1
 # Main window geometry.
 # Decimal numbers.
 gui.geometry_main_x: 1920
-gui.geometry_main_y: 0
-gui.geometry_main_width: 473
-gui.geometry_main_height: 516
+gui.geometry_main_y: 1080
+gui.geometry_main_width: 1912
+gui.geometry_main_height: 1040
 
 # Main window maximized.
 # true or false (case-insensitive).
@@ -27,7 +27,7 @@ gui.geometry_main_maximized: true
 
 # Main window geometry state.
 # Hex byte string.
-gui.geometry_main: 01d9d0cb00030000000007800000000000000958000002030000000000000000fffffffefffffffe0000000002000000078000000780000000000000095800000203
+gui.geometry_main: 01d9d0cb00030000000007800000043800000ef700000847000007800000043800000ef70000084700000000020000000780000007800000043800000ef700000847
 
 # Leftalign Action Buttons.
 # true or false (case-insensitive).
