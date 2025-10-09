@@ -38,15 +38,6 @@ bindkey '^F' end-of-line
 source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
 autopair-init
 
-# zowe completion
-source $ZDOTDIR/plugins/custom-completion/zowe.bash
-
-# carapace completion
-source <(carapace _carapace zsh)
-
-# Angular completion
-source <(ng completion script)
-
 compdef _gnu_generic fzf
 
 #######
