@@ -1,0 +1,99 @@
+# My i3status configuration file.
+# Using ideas from
+# - https://github.com/addy-dclxvi/i3-starterpack
+# - https://github.com/steffenfritz/i3status_config
+# and possibly others.
+# Needs font "NotoSans Nerd Font", see https://www.nerdfonts.com/
+# (On Arch: "trizen -S nerd-fonts-hack nerd-fonts-noto")
+# See "man i3status" for documentation.
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+# Set Kate and Konsole to use "Hack Nerd Font" to correctly display the  Unicode characters here.
+# Use XFCE's Mousepad (c-s-u, ffff) to edit symbols.
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "memory"
+order += "disk /"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "volume master"
+order += "battery all"
+order += "tztime local"
+
+cpu_temperature 0 {
+        # f2c9, nf-fa-thermometer_2
+    	format = " %degrees °C"
+        path = /sys/class/thermal/thermal_zone0/temp
+}
+
+cpu_usage {
+        # f799, nf-mdi-gauge
+        format = "  %usage"
+}
+
+memory {
+        # f85a, nf-mdi-memory
+        format = "  %percentage_used"
+        threshold_degraded = "10%"
+}
+
+disk "/" {
+        # faed, nf-mdi-disk
+        format = "  %percentage_used"
+        threshold_type = "percentage"
+        low_threshold = "5"
+}
+
+wireless _first_ {
+        # faa8, nf-mdi-wifi
+        format_up = "  %essid %ip"
+        # faa9, nf-mdi-wifi_off
+        format_down = "WIFI down"
+        color_good = '#00FF00'
+        color_bad = '#FF0000'
+}
+
+ethernet _first_ {
+        # f817, nf-mdi-lan_connect
+        format_up = " %ip"
+        # f818, nf-mdi-lan_disconnect
+        format_down = "down"
+        color_good = '#00FF00'
+        color_bad = '#FF0000'
+}
+
+volume master {
+        # fa7d, nf-mdi-volume_high
+        format = "  %volume"
+        # fc5d, nf-mdi-volume_mute
+        # format_muted = "%volume" ??? gets reversed
+        format_muted = "󰖁"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+battery all {
+    format = " %status %percentage "
+        format_down = "No battery"
+        last_full_capacity = true
+        integer_battery_capacity = true
+        status_chr = ""
+        status_bat = "󰄌"
+        status_unk = ""
+        status_full = ""
+        low_threshold = 20
+        threshold_type = time
+}
+
+tztime local {
+        format = "%d.%m.%Y %H:%M"
+}

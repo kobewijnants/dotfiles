@@ -20,9 +20,3 @@ export MANPAGER='nvim +Man!'
 
 # PATH
 export PATH="$PATH:$HOME/.npm-global/bin"
-export PATH="$PATH:$HOME/.config/emacs/bin"
-
-# FZF
-export FZF_DEFAULT_COMMAND='rg --no-messages --files --no-ignore --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS="--no-separator --layout=reverse --inline-info"
-

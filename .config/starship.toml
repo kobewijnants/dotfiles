@@ -6,8 +6,10 @@ $git_branch\
 $git_state\
 $git_status\
 $cmd_duration\
-$python\
 $character"""
+
+[username]
+
 
 [directory]
 style = "blue"
@@ -39,7 +41,3 @@ style = "bright-black"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
-
-[python]
-format = "[$virtualenv]($style) "
-style = "bright-black"

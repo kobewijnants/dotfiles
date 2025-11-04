@@ -1,111 +1,97 @@
 #zmodload zsh/zprof
 ###########
-# ALIASES #
+# GENERAL #
 ###########
-source $ZDOTDIR/aliases
+export ZDOTDIR="${ZDOTDIR:-$HOME/.config/zsh}"
+export KEYTIMEOUT=1
+setopt autocd nomatch interactive_comments
+
+#########
+# ZINIT #
+#########
+source "${ZDOTDIR}/zinit/bin/zinit.zsh"
+
+# Core plugins — fast and async loading
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' zsh-users/zsh-completions
+
+zinit wait lucid for \
+  Aloxaf/fzf-tab \
+  hlissner/zsh-autopair \
+  jeffreytse/zsh-vi-mode
 
 ##############
-# COMPLETION #
+# COMPLETIONS #
 ##############
-#autoload -Uz compinit; compinit -C
-autoload -Uz zrecompile
-autoload -Uz compinit
-dump=$ZSH_COMPDUMP
+autoload -U compinit && compinit
+zmodload zsh/complist
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+_comp_options+=(globdots)
+source "${ZDOTDIR}/completions.sh"
+# cache completions
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.config/zsh/cache
+# show description in completion menu
+zstyle ':completion:*:descriptions' format '%B%d%b'
+# better sorting
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# enable preview in fzf-tab
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:complete:*' fzf-preview 'less ${(Q)realpath}'
 
-if [[ -s $dump(#qN.mh+24) && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
-    compinit -i d $ZSH_COMPDUMP
-    zrecompile $ZSH_COMPDUMP
-fi
-compinit -C
-
-_comp_options+=(globdots) # With hidden files
-source $ZDOTDIR/completion.zsh
-
-fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
-
-# History based completion
-setopt HIST_EXPIRE_DUPS_FIRST
-# autocompletion using arrow keys (based on history)
+###########
+# KEYBINDS #
+###########
+bindkey '^F' end-of-line
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
-setopt NO_BEEP
 
-# Auto-suggestions
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^F' end-of-line
-
-# autopair
-source $ZDOTDIR/plugins/zsh-autopair/autopair.zsh
-autopair-init
-
-compdef _gnu_generic fzf
-
-#######
-# VIM #
-#######
-
-# Use vi keybindings
-#bindkey -v
-export KEYTIMEOUT=1
-
-# Use vi mode to scroll through completion
-zmodload zsh/complist
+# Vi-style navigation for completions
 bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
 
-# Use vim keys in command line
+# Quick edit command line with vim
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# Text objects
-autoload -Uz select-bracketed select-quoted
-zle -N select-quoted
-zle -N select-bracketed
-for km in viopp visual; do
-  bindkey -M $km -- '-' vi-up-line-or-history
-  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
-    bindkey -M $km $c select-quoted
-  done
-  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-    bindkey -M $km $c select-bracketed
-  done
-done
-
-# Surrounding
-autoload -Uz surround
-zle -N delete-surround surround
-zle -N add-surround surround
-zle -N change-surround surround
-bindkey -M vicmd cs change-surround
-bindkey -M vicmd ds delete-surround
-bindkey -M vicmd ys add-surround
-bindkey -M visual S add-surround
+##############
+# HIST & MISC #
+##############
+HISTFILE=$ZDOTDIR/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
+setopt HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_EXPIRE_DUPS_FIRST HIST_VERIFY APPEND_HISTORY NO_BEEP
 
 ##########
-# gcloud #
+# GCLOUD #
 ##########
-
-source /home/kobe/Documents/google-cloud-sdk/path.zsh.inc
+source /home/kobe/Documents/google-cloud-sdk/path.zsh.inc 2>/dev/null || true
 
 ##########
 # ZOXIDE #
 ##########
 eval "$(zoxide init zsh)"
 
-#######################
-# SYNTAX HIGHLIGHTING #
-#######################
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#############
-# FUNCTIONS #
-#############
-source $ZDOTDIR/functions.zsh
-
-############
+##########
 # STARSHIP #
-############
+##########
 eval "$(starship init zsh)"
+
+##########
+# ALIASES #
+##########
+[[ -f $ZDOTDIR/aliases ]] && source $ZDOTDIR/aliases
+
+##########
+# FZF #
+##########
+# Adds fzf fuzzy completion and keybindings if installed
+if command -v fzf >/dev/null; then
+  [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+fi
