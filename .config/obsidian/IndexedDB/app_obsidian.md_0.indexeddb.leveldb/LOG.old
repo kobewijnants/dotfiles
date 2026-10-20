@@ -1,0 +1,28 @@
+2026/10/11-16:29:31.307 d7a7 Reusing MANIFEST /home/kobe/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/11-16:29:31.307 d7a7 Recovering log #26
+2026/10/11-16:29:31.318 d7a7 Reusing old log /home/kobe/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000026.log 
+2026/10/11-16:29:34.047 d7a7 Level-0 table #32: started
+2026/10/11-16:29:34.080 d7a7 Level-0 table #32: 1357261 bytes OK
+2026/10/11-16:29:34.081 d7a7 Delete type=0 #26
+2026/10/11-16:29:34.179 d726 Compacting 1@1 + 2@2 files
+2026/10/11-16:29:34.221 d726 Generated table #33@1: 3118 keys, 2151664 bytes
+2026/10/11-16:29:34.225 d726 Generated table #34@1: 543 keys, 204332 bytes
+2026/10/11-16:29:34.225 d726 Compacted 1@1 + 2@2 files => 2355996 bytes
+2026/10/11-16:29:34.227 d726 compacted to: files[ 0 0 2 0 0 0 0 ]
+2026/10/11-16:29:35.005 d7a7 Level-0 table #36: started
+2026/10/11-16:29:35.024 d7a7 Level-0 table #36: 1063251 bytes OK
+2026/10/11-16:29:35.026 d7a7 Delete type=2 #29
+2026/10/11-16:29:35.026 d7a7 Delete type=2 #28
+2026/10/11-16:29:35.026 d7a7 Delete type=0 #31
+2026/10/11-16:29:35.026 d7a7 Delete type=2 #32
+2026/10/11-16:29:35.101 d7ab Compacting 1@1 + 2@2 files
+2026/10/11-16:29:35.118 d7ab Generated table #37@1: 3323 keys, 2152295 bytes
+2026/10/11-16:29:35.128 d7ab Generated table #38@1: 943 keys, 1164833 bytes
+2026/10/11-16:29:35.129 d7ab Compacted 1@1 + 2@2 files => 3317128 bytes
+2026/10/11-16:29:35.130 d7ab compacted to: files[ 0 0 2 0 0 0 0 ]
+2026/10/11-16:49:31.984 d7a7 Level-0 table #40: started
+2026/10/11-16:49:32.011 d7a7 Level-0 table #40: 896168 bytes OK
+2026/10/11-16:49:32.015 d7a7 Delete type=2 #36
+2026/10/11-16:49:32.015 d7a7 Delete type=2 #33
+2026/10/11-16:49:32.016 d7a7 Delete type=0 #35
+2026/10/11-16:49:32.016 d7a7 Delete type=2 #34

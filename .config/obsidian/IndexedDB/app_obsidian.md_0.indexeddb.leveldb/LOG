@@ -1,0 +1,37 @@
+2026/10/13-20:42:39.681 26ab Reusing MANIFEST /home/kobe/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/13-20:42:39.682 26ab Recovering log #39
+2026/10/13-20:42:39.683 26ab Reusing old log /home/kobe/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000039.log 
+2026/10/13-20:42:41.186 2721 Compacting 1@1 + 2@2 files
+2026/10/13-20:42:41.265 2721 Generated table #42@1: 3474 keys, 2152902 bytes
+2026/10/13-20:42:41.299 2721 Generated table #43@1: 1014 keys, 1342913 bytes
+2026/10/13-20:42:41.299 2721 Compacted 1@1 + 2@2 files => 3495815 bytes
+2026/10/13-20:42:41.300 2721 compacted to: files[ 0 0 2 0 0 0 0 ]
+2026/10/13-20:42:41.301 2721 Delete type=2 #40
+2026/10/13-20:42:41.301 2721 Delete type=2 #37
+2026/10/13-20:42:41.301 2721 Delete type=2 #38
+2026/10/13-20:42:46.730 2721 Level-0 table #45: started
+2026/10/13-20:42:46.765 2721 Level-0 table #45: 1371988 bytes OK
+2026/10/13-20:42:46.770 2721 Delete type=0 #39
+2026/10/13-20:42:47.042 2721 Compacting 1@1 + 2@2 files
+2026/10/13-20:42:47.097 2721 Generated table #46@1: 3500 keys, 2154537 bytes
+2026/10/13-20:42:47.134 2721 Generated table #47@1: 998 keys, 1370410 bytes
+2026/10/13-20:42:47.134 2721 Compacted 1@1 + 2@2 files => 3524947 bytes
+2026/10/13-20:42:47.137 2721 compacted to: files[ 0 0 2 0 0 0 0 ]
+2026/10/13-20:42:49.004 2721 Level-0 table #49: started
+2026/10/13-20:42:49.027 2721 Level-0 table #49: 1829580 bytes OK
+2026/10/13-20:42:49.030 2721 Delete type=0 #44
+2026/10/13-20:42:49.030 2721 Delete type=2 #43
+2026/10/13-20:42:49.030 2721 Delete type=2 #42
+2026/10/13-20:42:49.030 2721 Delete type=2 #45
+2026/10/13-20:43:41.508 26ab Compacting 1@1 + 2@2 files
+2026/10/13-20:43:41.561 26ab Generated table #50@1: 2766 keys, 2142104 bytes
+2026/10/13-20:43:41.610 26ab Generated table #51@1: 1349 keys, 2135705 bytes
+2026/10/13-20:43:41.619 26ab Generated table #52@1: 828 keys, 692970 bytes
+2026/10/13-20:43:41.619 26ab Compacted 1@1 + 2@2 files => 4970779 bytes
+2026/10/13-20:43:41.620 26ab compacted to: files[ 0 0 3 0 0 0 0 ]
+2026/10/13-20:43:41.621 26ab Delete type=2 #47
+2026/10/13-20:43:41.621 26ab Delete type=2 #46
+2026/10/13-20:43:41.621 26ab Delete type=2 #49
+2026/10/13-23:55:08.547 26ab Level-0 table #54: started
+2026/10/13-23:55:08.563 26ab Level-0 table #54: 1107699 bytes OK
+2026/10/13-23:55:08.566 26ab Delete type=0 #48
